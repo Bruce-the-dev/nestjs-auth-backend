@@ -38,4 +38,15 @@ export class UsersService {
 
     return { message: 'Login successful', token };
   }
+  async getUsers() {
+    return this.userRepository.find();
+  }
+  async deleteUser(id: number): Promise<string> {
+    const result = await this.userRepository.delete(id);
+    if (result.affected) {
+      return 'User deleted successfully';
+    } else {
+      return 'User not found';
+    }
+  }
 }

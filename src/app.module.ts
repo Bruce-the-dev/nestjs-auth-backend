@@ -14,6 +14,7 @@ import { User } from './users/user.entity';
       url: process.env.DATABASE_URL,
       entities: [User], // Ensure User entity is imported correctly
       synchronize: true, // Auto-create tables (disable in production)
+      logging: true,
     }),
     UsersModule, // User Module
   ],
